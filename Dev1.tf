@@ -18,10 +18,11 @@ resource "google_compute_instance" "instance1" {
 
   network_interface {
     # A default network is created for all GCP projects
-    network       = google_compute_subnetwork.prod-dmz.name
+    subnetwork       = google_compute_subnetwork.prod-dmz.name
     access_config {
     }
   }
+   metadata_startup_script = "apt-get -y update && apt-get -y upgrade && apt-get -y install apache2 && systemctl start apache2"
 }
 
 # Création instance2 mouton
@@ -31,13 +32,13 @@ resource "google_compute_instance" "instance2" {
 
   boot_disk {
     initialize_params {
-      image = "fedora-coreos-next"
+      image = "fedora-coreos-cloud/fedora-coreos-next"
     }
   }
 
   network_interface {
     # A default network is created for all GCP projects
-    network       = google_compute_subnetwork.prod-interne.name
+    subnetwork       = google_compute_subnetwork.prod-interne.name
     access_config {
     }
   }
@@ -50,13 +51,13 @@ resource "google_compute_instance" "instance3" {
 
   boot_disk {
     initialize_params {
-      image = "fedora-coreos-next"
+      image = "fedora-coreos-cloud/fedora-coreos-next"
     }
   }
 
   network_interface {
     # A default network is created for all GCP projects
-    network       = google_compute_subnetwork.prod-interne.name
+    subnetwork       = google_compute_subnetwork.prod-interne.name
   }
 }
 
@@ -114,7 +115,8 @@ resource "google_compute_firewall" "public-web" {
   name    = "public-web"
   network = google_compute_network.devoir1.name
   allow {
-    protocol = "apache2"
+    protocol = "tcp"
+    ports = ["80"]
   }
   target_tags=["public-web"]
 }
