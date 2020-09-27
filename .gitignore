@@ -7,6 +7,8 @@
 
 #credentials
 account.json
+demo2.json
+accountold.json
 
 # Crash log files
 crash.log
