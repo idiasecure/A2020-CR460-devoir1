@@ -22,6 +22,9 @@ resource "google_compute_instance" "instance1" {
     access_config {
     }
   }
+
+  tags=["public-web"]
+  
    metadata_startup_script = "apt-get -y update && apt-get -y upgrade && apt-get -y install apache2 && systemctl start apache2"
 }
 
