@@ -24,7 +24,7 @@ resource "google_compute_instance" "instance1" {
   }
 
   tags=["public-web"]
-  
+
    metadata_startup_script = "apt-get -y update && apt-get -y upgrade && apt-get -y install apache2 && systemctl start apache2"
 }
 
@@ -60,7 +60,7 @@ resource "google_compute_instance" "instance3" {
 
   network_interface {
     # A default network is created for all GCP projects
-    subnetwork       = google_compute_subnetwork.prod-interne.name
+    subnetwork       = google_compute_subnetwork.prod-traitement.name
   }
 }
 
@@ -147,8 +147,11 @@ resource "google_compute_firewall" "ssh" {
 
   allow {
     protocol = "tcp"
+    ports    = ["22"]
   }
+ direction = "EGRESS"
  destination_ranges = ["10.0.3.0/24"]
+
  }
 
 
