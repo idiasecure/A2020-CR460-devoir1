@@ -144,7 +144,7 @@ resource "google_compute_firewall" "ssh" {
   allow {
     protocol = "tcp"
   }
- source_ranges = ["10.0.3.0/24"]
+ destination_ranges = ["10.0.3.0/24"]
  }
 
 
