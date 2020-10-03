@@ -124,7 +124,7 @@ resource "google_compute_firewall" "public-web" {
 # Une règle de pare-feu pour autoriser le trafic web sur les ports TCP 2846, 5462
 resource "google_compute_firewall" "traitement" {
   name    = "traitement"
-  subnetwork       = google_compute_subnetwork.prod-interne.name
+  network = google_compute_network.devoir1.name
 
   allow {
      protocol = "tcp"
