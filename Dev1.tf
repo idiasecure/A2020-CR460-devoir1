@@ -132,6 +132,7 @@ resource "google_compute_firewall" "traitement" {
    }
 
    target_tags=["traitement"]
+   source_ranges = ["10.0.3.0/24"]
 
 }
 
