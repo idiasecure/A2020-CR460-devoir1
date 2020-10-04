@@ -32,6 +32,7 @@ resource "google_compute_instance" "instance1" {
 resource "google_compute_instance" "instance2" {
   name         = "mouton"
   machine_type = "f1-micro"
+  tags=["interne"]
 
   boot_disk {
     initialize_params {
@@ -51,6 +52,7 @@ resource "google_compute_instance" "instance2" {
 resource "google_compute_instance" "instance3" {
   name         = "cheval"
   machine_type = "f1-micro"
+  tags=["traitement"]
 
   boot_disk {
     initialize_params {
@@ -68,6 +70,7 @@ resource "google_compute_instance" "instance3" {
 resource "google_compute_instance" "instance4" {
   name         = "fermier"
   machine_type = "f1-micro"
+  tags=["fermier"]
 
   boot_disk {
     initialize_params {
