@@ -144,16 +144,16 @@ resource "google_compute_firewall" "traitement" {
 
 
 # Une règle de pare-feu pour autoriser la connexion ssh de l'internet vers les instances internes
-resource "google_compute_firewall" "ssh" {
-  name    = "ssh"
+resource "google_compute_firewall" "ssh-interne" {
+  name    = "ssh-interne"
   network = google_compute_network.devoir1.name
 
   allow {
     protocol = "tcp"
     ports    = ["22"]
   }
- direction = "EGRESS"
- destination_ranges = ["10.0.3.0/24"]
+
+target_tags=["interne"]
 
  }
 
