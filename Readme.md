@@ -1,6 +1,6 @@
 # Devoir 1
 Voir énoncé plus bas...
-Ci-dessous quelques instructions sur la structure du projet.
+Ci-dessous quelques instructions sur la structure #### du devoir remis.
 
 ## Découpage en modules
 Le projet est découpé en plusieurs modules :
