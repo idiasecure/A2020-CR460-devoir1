@@ -1,8 +1,8 @@
 # Devoir 1
 Voir énoncé plus bas...
-Ci-dessous quelques instructions sur la structure #### du devoir remis.
+Ci-dessous quelques instructions sur la structure du devoir remis.
 
-## Découpage en modules
+## Remise du devoir 1  : Découpage en modules
 Le projet est découpé en plusieurs modules :
 #### variables.tf :
 contient les variables pour identifier le projet et la zone de traitement
